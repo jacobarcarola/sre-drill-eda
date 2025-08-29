@@ -1,0 +1,15 @@
+---
+- name: SRE Drill Rulebook
+  hosts: localhost
+  sources:
+    - name: listen for alerts
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:
+    - name: Ansible message
+      condition: event.payload.message == "Rulebook Triggered"
+      action:
+        run_job_template:
+          organization: Default
+          name: "Demo Job Template"
