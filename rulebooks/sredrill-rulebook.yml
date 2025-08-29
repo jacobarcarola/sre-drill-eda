@@ -5,7 +5,7 @@
     - name: listen for alerts
       ansible.eda.webhook:
         host: 0.0.0.0
-        port: 5000
+        # port: 5000
   rules:
     - name: Ansible message
       condition: event.payload.message == "Rulebook Triggered"
